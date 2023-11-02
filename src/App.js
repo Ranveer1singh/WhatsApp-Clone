@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import React from 'react'
+import Massenger from './component/messenger'
+const App = () => {
+const ClientId = "969238252330-m94jllvcmj4v9sr226ktumeh0u0blfnt.apps.googleusercontent.com"
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <GoogleOAuthProvider clientId={ClientId}>
+      <Massenger />
+    </GoogleOAuthProvider>
+  )
 }
 
-export default App;
+export default App

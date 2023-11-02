@@ -1,0 +1,13 @@
+{
+    "web": {
+      "client_id": "969238252330-m94jllvcmj4v9sr226ktumeh0u0blfnt.apps.googleusercontent.com",
+      "project_id": "mywhatsapp-403904",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_secret": "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",
+      "redirect_uris": ["https://localhost", "https://localhost:3000"],
+      "javascript_origins": ["https://localhost", "https://localhost:3000"]
+    }
+  }
+  
