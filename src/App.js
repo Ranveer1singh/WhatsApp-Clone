@@ -1,12 +1,15 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import React from 'react'
 import Massenger from './component/messenger'
+import AccountProvider from './context/AccountProvider';
 const App = () => {
-const ClientId = "969238252330-m94jllvcmj4v9sr226ktumeh0u0blfnt.apps.googleusercontent.com"
+const ClientId = "872576635872-gus9vrpq2i8rocl03tr3cihg87mp4pbc.apps.googleusercontent.com"
 
   return (
     <GoogleOAuthProvider clientId={ClientId}>
-      <Massenger />
+      <AccountProvider>
+        <Massenger />
+      </AccountProvider>
     </GoogleOAuthProvider>
   )
 }

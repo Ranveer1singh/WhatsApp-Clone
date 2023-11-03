@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Dialog, Box, Typography, List, ListItem, styled } from "@mui/material";
 import { qrCodeImage } from "../consonant/data";
 import { GoogleLogin } from "@react-oauth/google";
+import { AccountContext } from "../../context/AccountProvider";
+import jwt_decode from "jwt-decode";
 const dialogStyled = {
   height: "96%",
   marginTop: "12%",
@@ -39,12 +41,27 @@ const StyledList = styled(List)`
     font-size: 20px;
   }
 `;
+const SignINQR = styled(Box)`
+  position: "relative";
+`;
+const SignIN = styled(Box)`
+  position: "absolute";
+  top: "50%";
+  transform: "translateX(25%)";
+`;
 const LoginDialog = () => {
-  const LogginSuccess = () => {};
-  const LogginError = () => {};
+  const { setAccount } = useContext(AccountContext);
+
+  const LogginSuccess = (res) => {
+    // const decoded = jwt_decode(res.credential);
+    // console.log(decoded)
+  };
+  const LogginError = (res) => {
+    console.log("login fail ", res);
+  };
 
   return (
-    <Dialog open={true} PaperProps={{ sx: dialogStyled }}>
+    <Dialog open={true} PaperProps={{ sx: dialogStyled }} hideBackdrop={true}>
       <Comp>
         <Container>
           <Title>To Use WhatsApp On Your computer:</Title>
@@ -57,12 +74,12 @@ const LoginDialog = () => {
             </ListItem>
           </StyledList>
         </Container>
-        <Box styled={{position: "relative"}}>
+        <SignINQR>
           <QRCode src={qrCodeImage} alt="qr code" />
-          <Box styled={{position: "absolute",top:"50%", transform:'translateX(25%)'}}>
+          <SignIN>
             <GoogleLogin onSuccess={LogginSuccess} onError={LogginError} />
-          </Box>
-        </Box>
+          </SignIN>
+        </SignINQR>
       </Comp>
     </Dialog>
   );

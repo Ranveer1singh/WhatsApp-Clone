@@ -1,5 +1,6 @@
 import React from "react";
 import LoginDialog from "./Account/LoginDialog";
+import ChatDialog from "./Chat/ChatDialog";
 import { AppBar, Toolbar, styled, Box } from "@mui/material";
 
 const Header = styled(AppBar)`
